@@ -1,16 +1,16 @@
-# Django Scraper
+# Django Food Calorie Counter
 
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Udemy](https://img.shields.io/badge/Udemy-A435F0?style=for-the-badge&logo=Udemy&logoColor=white)![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 
-You can use this custom Django scraper application to practice Django and Python. It is a beginner step for learning how to write your first Django based scraper.
+You can use this custom Django calorie counter application to practice Django and Python. It is a beginner step for learning how to write your first Django based food calorie counter.
 
 ## Installation
 
 1. Clone th repository
 
 ```
-git clone https://github.com/RalitsaTerzieva/web-scraper-app
+git clone https://github.com/RalitsaTerzieva/calorie-food-app
 ``` 
 
 2. Install all required packages
