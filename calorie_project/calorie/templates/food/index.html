@@ -53,6 +53,13 @@
                               <td>{{ food.food_consumed.calories }}</td>
                             </tr>
                             {% endfor %}
+                            <tr>
+                                <td id='total' class='fw-bold'>Total:</td>
+                                <td id='totalCarbs' class='fw-bold'></td>
+                                <td id='totalFats' class='fw-bold'></td>
+                                <td id='totalProtein' class='fw-bold'></td>
+                                <td id='totalCalories' class='fw-bold'></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -62,4 +69,20 @@
         
         <script src="" async defer></script>
     </body>
+    <script>
+        const table = document.getElementById('table')
+        let carbs = fats = protein = calories = 0
+        
+        for(let i=1;i<table.rows.length -1;i++) {
+            carbs += parseFloat(table.rows[i].cells[1].innerHTML);
+            fats += parseFloat(table.rows[i].cells[2].innerHTML);
+            protein += parseFloat(table.rows[i].cells[3].innerHTML);
+            calories += parseFloat(table.rows[i].cells[4].innerHTML);
+        }
+        
+        document.getElementById('totalCarbs').innerHTML = Math.round(carbs);
+        document.getElementById('totalFats').innerHTML = Math.round(fats);
+        document.getElementById('totalProtein').innerHTML = Math.round(protein);
+        document.getElementById('totalCalories').innerHTML = Math.round(calories);
+    </script>
 </html>
