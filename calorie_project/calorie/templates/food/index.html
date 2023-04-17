@@ -8,10 +8,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link rel="stylesheet" href="">
     </head>
     <body>
         <div class='container m-4'>
+            <div class='row'>
+                <div class='col-md-12'>
+                    <nav class="navbar navbar-light bg-warning bg-gradient mb-4">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Calorie Tracker</a>
+                          </div>
+                    </nav>
+                </div>
+            </div>
+
+            <div class='row mb-3'>
+                <h4>Calorie Goal</h4>
+            </div>
+            <div class='row mb-3'>
+                <div class='col-md-9 offset-1'>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Calories</div>
+                    </div>
+                </div>
+            </div>
+
             <div class='row mb-4'>
                 <div class='col-md-12'>
                     <form method='POST'>
@@ -63,7 +86,19 @@
                         </tbody>
                     </table>
                 </div>
-                <div class='col-md-5 offset-1'></div>
+                <div class='col-md-5 offset-1'>
+                    <div class='m-4'>
+                        <h4>Today's breakdown</h4>
+                    </div>
+                    <div class='card-header text-white bg-success'>
+                        <h3>Macronutrients breakdown</h3>
+                    </div>
+                    <div class='col-md-12'>
+                        <div>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -84,5 +119,35 @@
         document.getElementById('totalFats').innerHTML = Math.round(fats);
         document.getElementById('totalProtein').innerHTML = Math.round(protein);
         document.getElementById('totalCalories').innerHTML = Math.round(calories);
+        
+      
+        let calPer = (calories / 2000) * 100;
+        document.getElementsByClassName('progress-bar')[0].setAttribute('style','width:'+ calPer +'%')
+        
+        let total = protein + fats + carbs;
+        debugger;
+        let carbsP = Math.round((carbs/total) * 100);
+        let fatsP = Math.round((fats/total) * 100);
+        let proteinP = Math.round((protein/total) * 100)    ;
+
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+              labels: ['Carbs ' +carbsP + '%' , 'Fats ' + fatsP + '%', 'Protein ' + proteinP + '%'],
+              datasets: [{
+                label: '# of Votes',
+                data: [carbsP, fatsP, proteinP],
+                backgroundColor: [
+                    'rgba(18, 185, 54, 0.8)',
+                    'rgba(255, 197, 7, 0.8)',
+                    'rgba(164, 236, 249, 0.8)'
+                ],
+                borderWidth: 1
+              }]
+            }
+          });
+        
     </script>
 </html>
