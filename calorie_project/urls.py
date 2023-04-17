@@ -19,5 +19,7 @@ from calorie_project.calorie import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('delete/<int:id>',views.delete_consume,name='delete'),
+    path('/delete',views.delete_all,name='delete_all'),
     path('',views.index,name='foods'),
 ]

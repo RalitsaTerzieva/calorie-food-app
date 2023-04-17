@@ -7,7 +7,7 @@ You can use this custom Django calorie counter application to practice Django an
 
 ## Installation
 
-1. Clone th repository
+1. Clone the repository
 
 ```
 git clone https://github.com/RalitsaTerzieva/calorie-food-app
