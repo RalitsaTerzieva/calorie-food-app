@@ -20,7 +20,10 @@
             </select>
             <button type='submit' class='btn btn-success'>Add</button>
         </form>
-    
+        
+        {% for item in consumed_food %}
+            {{ item.food_consumed.name }} ---> {{ item.food_consumed.carbs }} ---> {{ item.food_consumed.protein }} ---> {{ item.food_consumed.fats }} Calories:{{ item.food_consumed.calories }} <br/>
+        {% endfor %}
         
         <script src="" async defer></script>
     </body>
