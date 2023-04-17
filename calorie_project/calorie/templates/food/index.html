@@ -11,8 +11,8 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <div class='container mt-4'>
-            <div class='row'>
+        <div class='container m-4'>
+            <div class='row mb-4'>
                 <div class='col-md-12'>
                     <form method='POST'>
                         <div class='form-group row'>
@@ -28,12 +28,37 @@
                     </form>
                 </div>
             </div>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <div class='m-4'>
+                        <h4>Today's Consumption</h4>
+                    </div>
+                    <table id='table' class='table table-striped table-warning m-4'>
+                        <thead>
+                            <tr class='table-success text-dark'>
+                              <th scope="col">Food</th>
+                              <th scope="col">Carbs</th>
+                              <th scope="col">Fats</th>
+                              <th scope="col">Protein</th>
+                              <th scope="col">Calories</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for food in consumed_food %}
+                            <tr>
+                              <th scope="row">{{ food.food_consumed.name }}</th>
+                              <td>{{ food.food_consumed.carbs }}</td>
+                              <td>{{ food.food_consumed.fats }}</td>
+                              <td>{{ food.food_consumed.protein }}</td>
+                              <td>{{ food.food_consumed.calories }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class='col-md-5 offset-1'></div>
+            </div>
         </div>
-        
-        
-        {% for item in consumed_food %}
-            {{ item.food_consumed.name }} ---> {{ item.food_consumed.carbs }} ---> {{ item.food_consumed.protein }} ---> {{ item.food_consumed.fats }} Calories:{{ item.food_consumed.calories }} <br/>
-        {% endfor %}
         
         <script src="" async defer></script>
     </body>
