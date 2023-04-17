@@ -11,15 +11,25 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <form method='POST'>
-            {% csrf_token %}
-            <select class="form-select" name='food_consumed' id='food_consumed'>
-                {% for food in foods %}
-                    <option value='{{ food }}'>{{ food }}</option>
-                {% endfor %}
-            </select>
-            <button type='submit' class='btn btn-success'>Add</button>
-        </form>
+        <div class='container mt-4'>
+            <div class='row'>
+                <div class='col-md-12'>
+                    <form method='POST'>
+                        <div class='form-group row'>
+                        {% csrf_token %}
+                        <label class='col-md-2 fw-bold'>Select food to add</div>
+                        <select class="form-select mb-3" name='food_consumed' id='food_consumed'>
+                            {% for food in foods %}
+                                <option value='{{ food }}'>{{ food }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type='submit' class='btn btn-success'>Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
         
         {% for item in consumed_food %}
             {{ item.food_consumed.name }} ---> {{ item.food_consumed.carbs }} ---> {{ item.food_consumed.protein }} ---> {{ item.food_consumed.fats }} Calories:{{ item.food_consumed.calories }} <br/>
