@@ -19,7 +19,7 @@ def delete_consume(request,id):
     if request.method == 'POST':
         consumed_food.delete()
         return redirect('/')
-    return render(request, 'food/delete.html')
+    return render(request, 'food/delete.html',{'consumed_food': consumed_food})
 
 def delete_all(request):
     all_items = Consume.objects.all()
