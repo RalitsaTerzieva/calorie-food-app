@@ -3,7 +3,7 @@
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Udemy](https://img.shields.io/badge/Udemy-A435F0?style=for-the-badge&logo=Udemy&logoColor=white)![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 
-You can use this custom Django calorie counter application to practice Django and Python. It is a beginner step for learning how to write your first Django based food calorie counter.
+You can use this custom Django calorie counter application to practice Django and Python. It is a beginner step for learning how to write your first Django based food calorie counter. There are add and delete CRUD operation but if you want you can add more. It is using Chartjs for building a chart for the consumed food nutrition but you can use something else if you want to.
 
 ## Installation
 
